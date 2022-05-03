@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 void insertionSort(int A[], int n)
 {
@@ -26,8 +25,8 @@ int main()
 
     insertionSort(A, n);
     for (int j = 0; j < n; j++)
-        cout << A[j] << " ";
-    cout << endl;
+        std::cout << A[j] << " ";
+    std::cout << std::endl;
 
     return 0;
 }
