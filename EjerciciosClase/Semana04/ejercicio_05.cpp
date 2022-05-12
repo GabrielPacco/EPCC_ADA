@@ -1,39 +1,32 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
-string pick_resume(vector <string> resumes)
+string pick_resume(string resumes)
 {
-    int n = sizeof(resumes) / sizeof(resumes[0]);
-    bool top = true;
-    int a = 0, b = n -1;
-
-    while (a < b)
+    auto eliminate = "top";
+    cout << resumes << endl;
+    while (resumes.length() > 1)
     {
-        if (top)
+        if (eliminate == "top")
         {
-            a += n/2;
-            top = false;
-        }else{
-            b -= n/2;
-            top = true;
+            resumes = resumes[resumes.length() /2, resumes.length() - 1];
+            eliminate = "bottom";
+            cout << resumes << endl;
         }
-        n = b + 1 - a;
+        else
+        {
+            resumes = resumes[0, resumes.length() / 2];
+            eliminate = "top";
+        }
+        cout << resumes << endl;
     }
-    return resumes[a];
+    return resumes;
 }
 
 int main()
 {
-    vector <string> resumes;
-    resumes.push_back("gaeaagdsgdsgdasgdfdsfdfdsafe");
-        
-    pick_resume(resumes);
-
-    for (auto resume : resumes)
-    {
-        cout << resume << endl;
-    }
-
+    string resumes = "the world is a vampire and a werewolf and a zombie and your works id aren't good enough";
+    string resume = pick_resume(resumes);
+    cout << "The resume is: " << resume << endl;
     return 0;
 }
