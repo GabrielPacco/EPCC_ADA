@@ -7,7 +7,7 @@
 *   comprobar cada elemento del array con todo el array.
 *   
 *       Complexidad:
-*   O(n*2)
+*   O(n^2)
 */
 #include <iostream>
 using namespace std;
